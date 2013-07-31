@@ -42,11 +42,7 @@ new model.gobal().setKeywords(['any', 'array', 'of', 'keywords'], function(err, 
 
 The hierarchy of the model object is:
 
-modelObj
-   |
-   |__ namespace
-           |
-           |__ property
+modelObj => namespace => property
 
 So in this example, *global* is the namespace, and *keywords* is the property. When you modelize, you get a constructor with each namespace defined, and get several methods for each property.
 
