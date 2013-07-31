@@ -97,16 +97,17 @@ Now things get interesting...
 Fist of all, the only *type* that requires different ammount of parameters is **hash**.
 
 Parameters for properties of type:
+
 * **hash**: 
-  1 *type*: **mandatory**. Defines the type. In this case 'hash'.
-  2 *props*: **mandatory**. Represent the fields of this hash object. You can define each field with `{refs: true|false}`. If *refs* is *true*, your property will get two extra methods, called *'getRef'+<field name with first letter in upper case>* and *'setRef'+<field name with first letter in upper case>*. I'll explain them later.
+  1. *type*: **mandatory**. Defines the type. In this case 'hash'.
+  2. *props*: **mandatory**. Represent the fields of this hash object. You can define each field with `{refs: true|false}`. If *refs* is *true*, your property will get two extra methods, called *'getRef'+<field name with first letter in upper case>* and *'setRef'+<field name with first letter in upper case>*. I'll explain them later.
 * **any other type**:
-  1 *type*: **mandatory**. Defines the type.
-  2 *refs*: **optional**. Same as above, but the methods will be named with property name.
+  1. *type*: **mandatory**. Defines the type.
+  2. *refs*: **optional**. Same as above, but the methods will be named with property name.
 
 ### WTF is _obj?
 
-Ok, now I'll explain the *_obj* property that you see in *user* and *project*. The `_obj` property is the only one that has special meaning. You can think of it as the constructor of a class.
+Ok, now I'll explain the *_obj* property that you see in *user* and *project*. The *_obj* property is the only one that has special meaning. You can think of it as the constructor of a class.
 
 With the model of the previous example, you could do the following:
 
@@ -115,6 +116,7 @@ new model.user({fullname: 'John Doe', email: 'john.doe@example.com', password: h
 ```
 
 Simple, isn't it? But there are some special considerations of the *_obj* property:
+
 * *_obj* property must be of type 'hash'.
 * Fields in *_obj* property may be defined with *refs* like a normal hash, and with the optional parameter *mandatory*. If a field is defined as mandatory, and it wasn't included in the constructor, it will thow an error.
 * *_obj* property may include the parameter *reverse*. This parameter can be a string, or an array of strings and they must match the name of a field defined in *props*. If this parameter is present, you get the static method *reverse*. You could use it like this: 
