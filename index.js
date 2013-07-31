@@ -27,7 +27,9 @@ exports.init = function(modelObj, options) {
       var prot;
       //if(element._obj) {
       model[name] = function(params, callback) {
-	if(typeof params == 'string'||typeof params == 'number') {
+	if(typeof params == 'function' && !callback) {
+	  params.call(this, null, null);
+	} else if(typeof params == 'string'||typeof params == 'number') {
 	  this.id = params;
 	  this.type = name;
 	  callback && callback.call(this, null, this.id);
@@ -43,6 +45,9 @@ exports.init = function(modelObj, options) {
 	      e.id = res;
 	      e.type = name;
 	      if(element._obj.reverse) {
+		if(!util.isArray(element._obj.reverse)) {
+			element._obj.reverse = [element._obj.reverse];
+		}
 		var parts = ['global'];
 		for(var i = 0; i<element._obj.reverse.length; i++) {
 		  parts.push(params[element._obj.reverse[i]]);
@@ -103,7 +108,10 @@ exports.init = function(modelObj, options) {
 	    id = this.id;
 	  }
 	  if(id && callback) {
-	    client.hgetall(prefix+name+':'+id+':_obj', callback);
+	    var e = this;
+	    client.hgetall(prefix+name+':'+id+':_obj', function(err, obj) {
+		callback.call(e, err, obj);
+	    });
 	  }
 	};
       }

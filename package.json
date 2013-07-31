@@ -1,5 +1,15 @@
 {
   "name": "redis-modelize",
+  "description": "Represent your model as a json object, and use redis as backend",
+  "keywords": ['redis', 'model'],
+  "homepage": "https://github.com/agmoyano/redis-modelize",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agmoyano/redis-modelize.git"
+  },
+  "author": {
+    "name": "Agustín Moyano"
+  },
   "version": "0.0.1",
   "main": "index.js",
   "dependencies": {
