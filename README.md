@@ -186,9 +186,16 @@ If a property or a field was defined with *refs: true*, it means that it gets tw
 ```
 //add a project to John Doe
 var jdUser = new model.user(1);
-var awproj = new model.project({name: 'Awesome Project', description: 'This project will be awesome'}, function(err, id) {
+var awproj = new model.project(
+	{
+		name: 'Awesome Project', 
+		description: 'This project will be awesome'
+	}, 
+	function(err, id) {
+	
 	this.setRefUser(jdUser);
 	jdUser.setRefProjects(this);
+
 });
 ``` 
 
