@@ -56,7 +56,7 @@ redis.sadd('prefix:global:keywords', ['any', 'array', 'of', 'keywords'], callbac
 ```
 
 
-*How does it know that you want to use **sadd**?*
+*How does it know that you want to use __sadd__?*
 
 Because we defined that the property **keywords** is of type **set**.
 
