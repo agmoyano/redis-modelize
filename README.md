@@ -201,4 +201,8 @@ var awproj = new model.project(
 
 If you later do `awproj.getRefUser(function(err, refUserInstance){ ... })`  the second argument of the callback function is an instance of the referenced user.
 
+## Help!
 
+Any suggestions, bug reports, bug fixes, etc, are very wellcome ([here](https://github.com/agmoyano/redis-modelize/issues)).
+
+Thanks for reading!.

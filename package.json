@@ -10,7 +10,7 @@
   "author": {
     "name": "Agustín Moyano"
   },
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "dependencies": {
     "redis": "0.8.3",
